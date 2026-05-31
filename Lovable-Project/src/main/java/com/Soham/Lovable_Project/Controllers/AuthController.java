@@ -1,9 +1,9 @@
 package com.Soham.Lovable_Project.Controllers;
 
-import com.Soham.Lovable_Project.DTOs.AuthResponse;
-import com.Soham.Lovable_Project.DTOs.LoginRequest;
-import com.Soham.Lovable_Project.DTOs.SignupRequest;
-import com.Soham.Lovable_Project.DTOs.UserProfileResponse;
+import com.Soham.Lovable_Project.DTOs.Auth.AuthResponse;
+import com.Soham.Lovable_Project.DTOs.Auth.LoginRequest;
+import com.Soham.Lovable_Project.DTOs.Auth.SignupRequest;
+import com.Soham.Lovable_Project.DTOs.Auth.UserProfileResponse;
 import com.Soham.Lovable_Project.Services.AuthService;
 import com.Soham.Lovable_Project.Services.UserService;
 import lombok.RequiredArgsConstructor;
