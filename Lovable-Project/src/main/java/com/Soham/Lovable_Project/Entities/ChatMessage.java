@@ -1,6 +1,7 @@
 package com.Soham.Lovable_Project.Entities;
 
 import com.Soham.Lovable_Project.Enums.MessageRole;
+import jakarta.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.time.Instant;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE )
+
 public class ChatMessage {
     Long id;
     ChatSession chatSession;

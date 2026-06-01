@@ -2,6 +2,7 @@ package com.Soham.Lovable_Project.Controllers;
 
 import com.Soham.Lovable_Project.DTOs.Member.InviteMemberRequest;
 import com.Soham.Lovable_Project.DTOs.Member.MemberResponse;
+import com.Soham.Lovable_Project.DTOs.Member.UpdateMemberRequest;
 import com.Soham.Lovable_Project.Entities.ProjectMember;
 import com.Soham.Lovable_Project.Services.ProjectMemberService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class ProjectMemberController {
     private final ProjectMemberService projectMemberService;
 
     @GetMapping
-    public ResponseEntity<List<ProjectMember>>getProjectMember(@PathVariable Long projectId){
+    public ResponseEntity<List<MemberResponse>>getProjectMember(@PathVariable Long projectId){
         Long userId=1L;
         return ResponseEntity.ok(projectMemberService.getProjectMembers(projectId,userId));
     }
@@ -35,7 +36,7 @@ public class ProjectMemberController {
     public ResponseEntity<MemberResponse> updateMemberRole(
             @PathVariable Long projectId,
             @PathVariable Long memberId,
-            @RequestBody InviteMemberRequest request
+            @RequestBody UpdateMemberRequest request
     ) {
         Long userId = 1L;
 
