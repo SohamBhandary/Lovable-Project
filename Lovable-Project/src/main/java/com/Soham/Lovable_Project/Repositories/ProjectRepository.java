@@ -7,10 +7,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-<<<<<<< HEAD
+
 import java.util.Optional;
-=======
->>>>>>> bf2ffa8c0de1008ae4eb7065a36828dcd0a749ac
+
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project,Long> {
@@ -21,7 +20,7 @@ public interface ProjectRepository extends JpaRepository<Project,Long> {
             
             """)
     List<Project> findAllAccessibleByUser(@Param("userId") Long userId);
-<<<<<<< HEAD
+
 
 
     @Query("""
@@ -37,6 +36,5 @@ public interface ProjectRepository extends JpaRepository<Project,Long> {
     Optional<Project> findAccessibleProjectById(@Param("projectId") Long projectId,
                                                @Param("userId") Long userId
                                                );
-=======
->>>>>>> bf2ffa8c0de1008ae4eb7065a36828dcd0a749ac
+
 }
