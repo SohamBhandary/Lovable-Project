@@ -20,7 +20,7 @@ public class ProjectMember {
     ProjectMemberId id;
 
     @ManyToOne
-     @MapsId("projectId")
+    @MapsId("projectId")
     Project project;
 
     @ManyToOne

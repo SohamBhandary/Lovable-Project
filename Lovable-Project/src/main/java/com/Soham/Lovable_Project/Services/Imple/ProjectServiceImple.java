@@ -4,8 +4,13 @@ import com.Soham.Lovable_Project.DTOs.Project.ProjectRequest;
 import com.Soham.Lovable_Project.DTOs.Project.ProjectResponse;
 import com.Soham.Lovable_Project.DTOs.Project.ProjectSummaryResponse;
 import com.Soham.Lovable_Project.Entities.Project;
+import com.Soham.Lovable_Project.Entities.ProjectMember;
+import com.Soham.Lovable_Project.Entities.ProjectMemberId;
 import com.Soham.Lovable_Project.Entities.User;
+import com.Soham.Lovable_Project.Enums.ProjectRole;
+import com.Soham.Lovable_Project.Error.ResourceNotFoundException;
 import com.Soham.Lovable_Project.Mapper.ProjectMapper;
+import com.Soham.Lovable_Project.Repositories.ProjectMemberRepository;
 import com.Soham.Lovable_Project.Repositories.ProjectRepository;
 import com.Soham.Lovable_Project.Repositories.UserRepository;
 import com.Soham.Lovable_Project.Services.ProjectService;
@@ -24,18 +29,9 @@ public class ProjectServiceImple implements ProjectService {
     private final ProjectRepository projectRepository;
     private final UserRepository userRepository;
     private final ProjectMapper projectMapper;
+    private final ProjectMemberRepository projectMemberRepository;
 
 
-    @Override
-    public ProjectResponse createProject(ProjectRequest request, Long userId) {
-        User owner = userRepository.findById(userId).orElseThrow();
-        Project project= Project.builder().name(request.name()).isPublic(false).owner(owner).build();
-        project=projectRepository.save(project);
-      return   projectMapper.toProjectResponse(project);
-
-
-
-    }
 
     @Override
     public List<ProjectSummaryResponse> getAllProjects(Long userId) {
@@ -58,6 +54,36 @@ public class ProjectServiceImple implements ProjectService {
 
     }
 
+    @Override
+    public ProjectResponse createProject(ProjectRequest request, Long userId) {
+        User owner = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User", userId.toString()));
+
+        // Extract the string explicitly to prevent processor binding mismatch
+        String projectName = request.name();
+
+        Project project = Project.builder()
+                .name(projectName)
+                .isPublic(false)
+                .build();
+
+        // Ensure this line precedes relational key mappings
+        project = projectRepository.save(project);
+
+        ProjectMemberId projectMemberId = new ProjectMemberId(project.getId(), owner.getId());
+        ProjectMember projectMember = ProjectMember.builder()
+                .id(projectMemberId)
+                .projectRole(ProjectRole.OWNER)
+                .user(owner)
+                .acceptedAt(Instant.now())
+                .invitedAt(Instant.now())
+                .project(project)
+                .build();
+
+        projectMemberRepository.save(projectMember);
+        return projectMapper.toProjectResponse(project);
+    }
+
 
     @Override
     public ProjectResponse updateProject(Long id, ProjectRequest req, Long userId) {
@@ -73,10 +99,7 @@ public class ProjectServiceImple implements ProjectService {
     @Override
     public void softDelete(Long id, Long userId) {
         Project project=getAccesibleProjectById( id, userId);
-        if(!project.getOwner().getId().equals(userId)){
-            throw    new RuntimeException("you not allowed");
 
-        }
         project.setDeletedAt(Instant.now());
         projectRepository.save(project);
 
@@ -87,7 +110,7 @@ public class ProjectServiceImple implements ProjectService {
     }
 
     public Project getAccesibleProjectById(Long projectId,Long userId){
-        return projectRepository.findAccessibleProjectById(projectId,userId).orElseThrow();
+        return projectRepository.findAccessibleProjectById(projectId,userId).orElseThrow(()-> new ResourceNotFoundException("Project",projectId.toString()));
 
     }
 }

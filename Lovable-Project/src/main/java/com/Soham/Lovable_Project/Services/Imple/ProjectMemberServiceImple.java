@@ -7,11 +7,13 @@ import com.Soham.Lovable_Project.Entities.Project;
 import com.Soham.Lovable_Project.Entities.ProjectMember;
 import com.Soham.Lovable_Project.Entities.ProjectMemberId;
 import com.Soham.Lovable_Project.Entities.User;
+import com.Soham.Lovable_Project.Error.ResourceNotFoundException;
 import com.Soham.Lovable_Project.Mapper.ProjectMemberRepsonseMapper;
 import com.Soham.Lovable_Project.Repositories.ProjectMemberRepository;
 import com.Soham.Lovable_Project.Repositories.ProjectRepository;
 import com.Soham.Lovable_Project.Repositories.UserRepository;
 import com.Soham.Lovable_Project.Services.ProjectMemberService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ProjectMemberServiceImple implements ProjectMemberService {
 
     private final ProjectMemberRepository projectMemberRepository;
@@ -31,22 +34,17 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
     @Override
     public List<MemberResponse> getProjectMembers(Long projectId, Long userId) {
         Project project = getAccesibleProjectById(projectId, userId);
-        List<MemberResponse> memberResponseList = new ArrayList<>();
-        memberResponseList.add(projectMemberRepsonseMapper.toProjectResponseFromOwner(project.getOwner()));
-        memberResponseList.addAll(projectMemberRepository.findByIdProjectId(projectId).stream().map(projectMemberRepsonseMapper::toProjectResponseFromMember).toList());
+      return
+        projectMemberRepository.findByIdProjectId(projectId).stream().map(projectMemberRepsonseMapper::toProjectResponseFromMember).toList();
 
 
-        return memberResponseList;
+
     }
 
     @Override
     public MemberResponse inviteMember(Long projectId, InviteMemberRequest request, Long userId) {
         Project project = getAccesibleProjectById(projectId, userId);
-        if(!project.getOwner().getId().equals(userId))
-        {
-            throw new RuntimeException("accesdenid");
-        }
-        User invitee=userRepository.findByEmail(request.email()).orElseThrow();
+        User invitee=userRepository.findByUsername(request.username()).orElseThrow();
         if(invitee.getId().equals(userId)){
             throw new RuntimeException("Cannot invite userslef");
         }
@@ -62,11 +60,25 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
 
     @Override
     public MemberResponse updateMemberRole(Long projectId, Long memberId, UpdateMemberRequest request, Long userId) {
-        return null;
+        Project project = getAccesibleProjectById(projectId, userId);
+
+        ProjectMemberId projectMemberId= new ProjectMemberId(projectId,memberId);
+        ProjectMember projectMember= projectMemberRepository.findById(projectMemberId).orElseThrow();
+        projectMember.setProjectRole(request.role());
+        projectMemberRepository.save(projectMember);
+        return projectMemberRepsonseMapper.toProjectResponseFromMember(projectMember);
     }
 
     @Override
-    public MemberResponse deleteProjectMember(Long projectId, Long memberId, Long userId) {
+    public Void removeProjectMember(Long projectId, Long memberId, Long userId) {
+        Project project = getAccesibleProjectById(projectId, userId);
+
+        ProjectMemberId projectMemberId= new ProjectMemberId(projectId,memberId);
+        if(!projectMemberRepository.existsById(projectMemberId)){
+            throw new RuntimeException("Member not found");
+        }
+        projectMemberRepository.deleteById(projectMemberId);
+
         return null;
     }
 

@@ -5,6 +5,7 @@ import com.Soham.Lovable_Project.DTOs.Member.MemberResponse;
 import com.Soham.Lovable_Project.DTOs.Member.UpdateMemberRequest;
 import com.Soham.Lovable_Project.Entities.ProjectMember;
 import com.Soham.Lovable_Project.Services.ProjectMemberService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class ProjectMemberController {
     }
     @PostMapping
     private ResponseEntity<MemberResponse> inviteMembers(@PathVariable Long projectId,
-                                                         @RequestBody InviteMemberRequest request){
+                                                         @RequestBody @Valid InviteMemberRequest request){
         Long userId=1L;
         return ResponseEntity.status((HttpStatus.CREATED)).body(
                 projectMemberService.inviteMember(projectId,request,userId)
@@ -36,7 +37,7 @@ public class ProjectMemberController {
     public ResponseEntity<MemberResponse> updateMemberRole(
             @PathVariable Long projectId,
             @PathVariable Long memberId,
-            @RequestBody UpdateMemberRequest request
+            @RequestBody @Valid UpdateMemberRequest request
     ) {
         Long userId = 1L;
 
@@ -48,17 +49,17 @@ public class ProjectMemberController {
     }
 
     @DeleteMapping("/{memberId}")
-    public ResponseEntity<MemberResponse> deleteMember(
+    public ResponseEntity<Void> deleteMember(
             @PathVariable Long projectId,
             @PathVariable Long memberId
     ) {
         Long userId = 1L;
-
-        return ResponseEntity.ok(
-                projectMemberService.deleteProjectMember(
-                        projectId, memberId, userId
-                )
+        projectMemberService.removeProjectMember(
+                projectId, memberId, userId
         );
+        return ResponseEntity.noContent().build();
+
+
     }
 
 
