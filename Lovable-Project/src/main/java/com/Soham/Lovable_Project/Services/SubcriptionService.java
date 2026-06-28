@@ -9,7 +9,5 @@ import org.jspecify.annotations.Nullable;
 public interface SubcriptionService {
     SubcriptionResponse getCurrentSubcription(Long userId);
 
-    CheckoutResponse createCheckoutSeesionUrl(CheckoutRequest checkoutRequest, Long userId);
 
-     PortalResponse openCustomerPortal(Long userId);
 }

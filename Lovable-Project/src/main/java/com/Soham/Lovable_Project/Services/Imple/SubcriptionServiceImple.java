@@ -14,13 +14,5 @@ public class SubcriptionServiceImple implements SubcriptionService {
         return null;
     }
 
-    @Override
-    public CheckoutResponse createCheckoutSeesionUrl(CheckoutRequest checkoutRequest, Long userId) {
-        return null;
-    }
 
-    @Override
-    public PortalResponse openCustomerPortal(Long userId) {
-        return null;
-    }
 }
