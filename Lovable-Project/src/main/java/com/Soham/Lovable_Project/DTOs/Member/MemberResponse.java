@@ -4,7 +4,11 @@ import com.Soham.Lovable_Project.Enums.ProjectRole;
 
 import java.time.Instant;
 
-public record MemberResponse(Long userId,  String userName, String avatarURL,
-                             ProjectRole projectRole,
-                             Instant invitedAt) {
+public record MemberResponse(
+        Long userId,
+        String username,
+        String name,
+        ProjectRole projectRole,
+        Instant invitedAt
+) {
 }

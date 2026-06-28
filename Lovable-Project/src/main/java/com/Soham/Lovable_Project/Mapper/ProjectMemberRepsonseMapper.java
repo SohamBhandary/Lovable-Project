@@ -13,16 +13,11 @@ public interface ProjectMemberRepsonseMapper {
 
         @Mapping(target = "userId", source = "id")
         @Mapping(target = "projectRole", constant = "OWNER")
-        @Mapping(target = "invitedAt", ignore = true)
-        MemberResponse toProjectResponseFromOwner(User owner);
+        MemberResponse toProjectMemberResponseFromOwner(User owner);
 
         @Mapping(target = "userId", source = "user.id")
-
-
-//        @Mapping(target = "name", source = "user.name")
-
-        @Mapping(target = "projectRole", source = "projectRole")
-        @Mapping(target = "invitedAt", source = "invitedAt")
+        @Mapping(target = "name", source = "user.username")
+        @Mapping(target = "username", source = "user.name")
 
         MemberResponse toProjectResponseFromMember(ProjectMember member);
     }
