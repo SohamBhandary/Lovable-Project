@@ -42,7 +42,7 @@ public class BillingController {
     @GetMapping("/api/me/subcription")
     public ResponseEntity<SubcriptionResponse> getMySubcription(){
         Long userId=1L;
-        return ResponseEntity.ok(subcriptionService.getCurrentSubcription(userId));
+        return ResponseEntity.ok(subcriptionService.getCurrentSubscription());
     }
     @PostMapping("/api/payments/checkout")
     public ResponseEntity<CheckoutResponse> createCheckoutResposne(   @RequestBody CheckoutRequest checkoutRequest){
