@@ -8,6 +8,7 @@ import com.Soham.Lovable_Project.Entities.ProjectMember;
 import com.Soham.Lovable_Project.Entities.ProjectMemberId;
 import com.Soham.Lovable_Project.Entities.User;
 import com.Soham.Lovable_Project.Enums.ProjectRole;
+import com.Soham.Lovable_Project.Error.BadRequestException;
 import com.Soham.Lovable_Project.Error.ResourceNotFoundException;
 import com.Soham.Lovable_Project.Mapper.ProjectMapper;
 import com.Soham.Lovable_Project.Repositories.ProjectMemberRepository;
@@ -15,6 +16,7 @@ import com.Soham.Lovable_Project.Repositories.ProjectRepository;
 import com.Soham.Lovable_Project.Repositories.UserRepository;
 import com.Soham.Lovable_Project.Security.AuthUtil;
 import com.Soham.Lovable_Project.Services.ProjectService;
+import com.Soham.Lovable_Project.Services.SubcriptionService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,15 +35,22 @@ public class ProjectServiceImple implements ProjectService {
     private final ProjectMapper projectMapper;
     private final ProjectMemberRepository projectMemberRepository;
     private final AuthUtil authUtil;
+    private SubcriptionService subcriptionService;
 
 
     @Override
     public ProjectResponse createProject(ProjectRequest request) {
+        if(subcriptionService.canCreateNewProject()){
+
+            throw  new BadRequestException("User cannot create new project in the current plan ,please upgrade to continue");
+
+        }
         Long userId = authUtil.getCurrentUserId();
 //        User owner = userRepository.findById(userId).orElseThrow(
 //                () -> new ResourceNotFoundException("User", userId.toString())
 //        );
         User owner = userRepository.getReferenceById(userId);
+
 
         Project project = Project.builder()
                 .name(request.name())

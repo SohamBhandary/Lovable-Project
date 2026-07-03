@@ -6,6 +6,7 @@ import com.Soham.Lovable_Project.DTOs.Subcription.PortalResponse;
 import com.Soham.Lovable_Project.Entities.Plan;
 import com.Soham.Lovable_Project.Entities.User;
 import com.Soham.Lovable_Project.Enums.SubcriptionStatus;
+import com.Soham.Lovable_Project.Error.BadRequestException;
 import com.Soham.Lovable_Project.Error.ResourceNotFoundException;
 import com.Soham.Lovable_Project.Repositories.PlanRepository;
 import com.Soham.Lovable_Project.Repositories.UserRepository;
@@ -94,8 +95,35 @@ public class StripePaymentProcessor implements PaymentProcessor {
     }
 
     @Override
-    public PortalResponse openCustomerPortal(Long userId) {
-        return null;
+    public PortalResponse openCustomerPortal() {
+        Long userid=authUtil.getCurrentUserId();
+       User user=getUser(userid);
+       String stripeCustomerId=user.getStripeCustomerId();
+       if(stripeCustomerId==null || stripeCustomerId.isEmpty()){
+           throw new BadRequestException("User doest not have a Stripe Customer ID, userID:="+userid);
+
+       }
+
+        try {
+            var portalSession = com.stripe.model.billingportal.Session.create(
+                    com.stripe.param.billingportal.SessionCreateParams.builder()
+                            .setCustomer(stripeCustomerId)
+                            .setReturnUrl(frontend)
+                            .build()
+            );
+
+            log.info("Portal Session ID: {}", portalSession.getId());
+            log.info("Portal URL: {}", portalSession.getUrl());
+
+            return new PortalResponse(portalSession.getUrl());
+
+        } catch (StripeException e) {
+            log.error("Stripe Error", e);
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 
     @Override

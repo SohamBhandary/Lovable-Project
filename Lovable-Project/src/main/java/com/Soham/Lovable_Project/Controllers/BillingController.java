@@ -57,8 +57,7 @@ public class BillingController {
     @PostMapping("/api/payments/portal")
     public ResponseEntity<PortalResponse> openCustomerPortal(){
 
-//        return ResponseEntity.ok(paymentProcessor.openCustomerPortal(userId));
-        return null;
+        return ResponseEntity.ok(paymentProcessor.openCustomerPortal());
 
     }
 
@@ -67,6 +66,7 @@ public class BillingController {
             @RequestBody String payload,
             @RequestHeader("Stripe-Signature") String sigHeader
     ) {
+        log.info("WEBHOOK HIT");
 
         try {
             Event event = Webhook.constructEvent(payload, sigHeader, webhookSecret);

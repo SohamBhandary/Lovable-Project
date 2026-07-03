@@ -11,6 +11,7 @@ import com.Soham.Lovable_Project.Enums.SubcriptionStatus;
 import com.Soham.Lovable_Project.Error.ResourceNotFoundException;
 import com.Soham.Lovable_Project.Mapper.SubcriptionMapper;
 import com.Soham.Lovable_Project.Repositories.PlanRepository;
+import com.Soham.Lovable_Project.Repositories.ProjectMemberRepository;
 import com.Soham.Lovable_Project.Repositories.SubcriptionRepository;
 import com.Soham.Lovable_Project.Repositories.UserRepository;
 import com.Soham.Lovable_Project.Security.AuthUtil;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.Set;
@@ -34,6 +36,10 @@ public class SubcriptionServiceImple implements SubcriptionService {
     private final SubcriptionMapper subcriptionMapper;
     private final UserRepository userRepository;
     private final PlanRepository planRepository;
+    private final ProjectMemberRepository projectMemberRepository;
+
+
+    private final Integer FREE_TIER_PROJECTS_ALLOWED = 1;
 
 
     public SubcriptionResponse getCurrentSubscription() {
@@ -62,11 +68,15 @@ public class SubcriptionServiceImple implements SubcriptionService {
         User user = getUser(userId);
         Plan plan = getPlan(planId);
 
-      Subcription subcription=Subcription.builder().
-              user(user).plan(plan).stripeSubscriptionId(subscriptionId)
-              .status(SubcriptionStatus.INCOMPLETE).
+        Subcription subcription = Subcription.builder()
+                .user(user)
+                .plan(plan)
+                .stripeSubscriptionId(subscriptionId)
+                .stripeCustomerId(customerId) // ✅ FIXED: Use the parameter directly!
+                .status(SubcriptionStatus.ACTIVE) // Tip: Change to ACTIVE if they successfully completed payment
+                .build();
 
-              build();
+        subcriptionRepository.save(subcription);
 
         subcriptionRepository.save(subcription);
     }
@@ -74,7 +84,44 @@ public class SubcriptionServiceImple implements SubcriptionService {
 
 
     @Override
+    @Transactional
     public void updateSubscription(String subscriptionId, SubcriptionStatus status, Instant periodStart, Instant periodEnd, Boolean cancelAtPeriodEnd, Long planId) {
+        Subcription subcription=getSubcription(subscriptionId);
+        Boolean subcriptionHasBennUpdated=false;
+        if(status!=null && status!=subcription.getStatus()){
+            subcription.setStatus(status);
+            subcriptionHasBennUpdated=true;
+
+        }
+        if(periodStart!=null && !periodStart.equals(subcription.getCurrentPeriodStart())){
+            subcription.setCurrentPeriodStart(periodStart);
+            subcriptionHasBennUpdated=true;
+
+        }
+        if(periodEnd!=null && !periodEnd.equals(subcription.getCancelAtPeriodEnd())){
+            subcription.setCurrentPeriodEnd(periodEnd);
+            subcriptionHasBennUpdated=true;
+
+        }
+
+        if(cancelAtPeriodEnd!=null && cancelAtPeriodEnd!=subcription.getCancelAtPeriodEnd()){
+            subcription.setCancelAtPeriodEnd(cancelAtPeriodEnd);
+            subcriptionHasBennUpdated=true;
+        }
+
+        if(planId!=null && !planId.equals(subcription.getPlan().getId())){
+            Plan newPlan=getPlan(planId);
+            subcription.setPlan(newPlan);
+
+            subcriptionHasBennUpdated=true;
+
+        }
+        if(subcriptionHasBennUpdated){
+            log.debug("Subcription has been updated :{} ",subscriptionId);
+
+        }
+
+
 
 
 
@@ -94,6 +141,7 @@ public class SubcriptionServiceImple implements SubcriptionService {
 
         Instant newStart = periodStart != null ? periodStart : subscription.getCurrentPeriodEnd();
         subscription.setCurrentPeriodStart(newStart);
+
         subscription.setCurrentPeriodEnd(periodEnd);
 
         if(subscription.getStatus() == SubcriptionStatus.PAST_DUE || subscription.getStatus() == SubcriptionStatus.INCOMPLETE) {
@@ -116,6 +164,20 @@ public class SubcriptionServiceImple implements SubcriptionService {
         subcription.setStatus(SubcriptionStatus.PAST_DUE);
         subcriptionRepository.save(subcription);
 
+    }
+
+    @Override
+    public boolean canCreateNewProject() {
+        Long userId = authUtil.getCurrentUserId();
+        SubcriptionResponse currentSubscription = getCurrentSubscription();
+
+        int countOfOwnedProjects = projectMemberRepository.countProjectOwnedByUser(userId);
+
+        if(currentSubscription.plan() == null) {
+            return countOfOwnedProjects < FREE_TIER_PROJECTS_ALLOWED;
+        }
+
+        return countOfOwnedProjects < currentSubscription.plan().maxProjects();
     }
 
 
