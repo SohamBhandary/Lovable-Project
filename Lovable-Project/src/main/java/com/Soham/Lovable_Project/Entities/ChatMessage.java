@@ -1,24 +1,43 @@
 package com.Soham.Lovable_Project.Entities;
 
 import com.Soham.Lovable_Project.Enums.MessageRole;
-import jakarta.persistence.Entity;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
+@Entity
+@Table(name = "chat_messages")
 @Getter
 @Setter
-@FieldDefaults(level = AccessLevel.PRIVATE )
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ChatMessage {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumns({
+            @JoinColumn(name = "project_id", referencedColumnName = "project_id", nullable = false),
+            @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    })
     ChatSession chatSession;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    MessageRole role; // USER, ASSISTANT
+
+    @Column(columnDefinition = "text", nullable = false)
     String content;
-    MessageRole role;
-    String toolCalls;
-    Integer tokensUsed;
+
+    Integer tokensUsed = 0;
+
+    @CreationTimestamp
     Instant createdAt;
 }

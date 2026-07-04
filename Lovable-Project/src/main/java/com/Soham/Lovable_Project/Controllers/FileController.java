@@ -2,8 +2,7 @@ package com.Soham.Lovable_Project.Controllers;
 
 import com.Soham.Lovable_Project.DTOs.Project.FileContentResponse;
 import com.Soham.Lovable_Project.DTOs.Project.FileNode;
-import com.Soham.Lovable_Project.DTOs.Project.FileTreeResponse;
-import com.Soham.Lovable_Project.Services.FIleService;
+import com.Soham.Lovable_Project.Services.ProjectFIleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/projects/{projectId}/files")
 public class FileController {
-    private final FIleService fIleService;
+    private final ProjectFIleService fIleService;
 
     @GetMapping
     public ResponseEntity<List<FileNode>> getFileTree(@PathVariable Long projectId){

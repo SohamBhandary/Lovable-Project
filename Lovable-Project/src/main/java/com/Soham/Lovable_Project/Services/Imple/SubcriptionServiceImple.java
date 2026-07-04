@@ -39,7 +39,7 @@ public class SubcriptionServiceImple implements SubcriptionService {
     private final ProjectMemberRepository projectMemberRepository;
 
 
-    private final Integer FREE_TIER_PROJECTS_ALLOWED = 1;
+    private final Integer FREE_TIER_PROJECTS_ALLOWED = 100;
 
 
     public SubcriptionResponse getCurrentSubscription() {
