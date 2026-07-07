@@ -16,6 +16,7 @@ import com.Soham.Lovable_Project.Repositories.ProjectRepository;
 import com.Soham.Lovable_Project.Repositories.UserRepository;
 import com.Soham.Lovable_Project.Security.AuthUtil;
 import com.Soham.Lovable_Project.Services.ProjectService;
+import com.Soham.Lovable_Project.Services.ProjectTemplateService;
 import com.Soham.Lovable_Project.Services.SubcriptionService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -35,12 +36,13 @@ public class ProjectServiceImple implements ProjectService {
     private final ProjectMapper projectMapper;
     private final ProjectMemberRepository projectMemberRepository;
     private final AuthUtil authUtil;
-    private SubcriptionService subcriptionService;
+    private  final SubcriptionService subcriptionService;
+    private final ProjectTemplateService projectTemplateService;
 
 
     @Override
     public ProjectResponse createProject(ProjectRequest request) {
-        if(subcriptionService.canCreateNewProject()){
+        if(!subcriptionService.canCreateNewProject()){
 
             throw  new BadRequestException("User cannot create new project in the current plan ,please upgrade to continue");
 
@@ -68,7 +70,9 @@ public class ProjectServiceImple implements ProjectService {
                 .invitedAt(Instant.now())
                 .project(project)
                 .build();
+
         projectMemberRepository.save(projectMember);
+        projectTemplateService.initializeProjectFromTemplate(project.getId());
 
         return projectMapper.toProjectResponse(project);
     }

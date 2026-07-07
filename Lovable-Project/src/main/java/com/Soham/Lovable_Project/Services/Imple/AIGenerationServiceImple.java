@@ -1,9 +1,11 @@
 package com.Soham.Lovable_Project.Services.Imple;
 
+import com.Soham.Lovable_Project.LLM.Advisor.FileTreeContextAdvisor;
 import com.Soham.Lovable_Project.LLM.PromptUtils;
 import com.Soham.Lovable_Project.Security.AuthUtil;
 import com.Soham.Lovable_Project.Services.AIGenerationService;
 import com.Soham.Lovable_Project.Services.ProjectFIleService;
+import com.Soham.Lovable_Project.Tools.CodeGenerationTools;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
@@ -13,7 +15,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,31 +26,40 @@ public class AIGenerationServiceImple implements AIGenerationService {
     private final ChatClient chatClient;
     private final AuthUtil authUtil;
     private final ProjectFIleService projectFileService;
-
+    private final FileTreeContextAdvisor fileTreeContextAdvisor;
 
     private static final Pattern FILE_TAG_PATTERN = Pattern.compile("<file path=\"([^\"]+)\">(.*?)</file>", Pattern.DOTALL);
 
     @PreAuthorize("@security.canEditProject(#projectId)")
     @Override
     public Flux<String> streamResponse(String userMessage, Long projectId) {
-        Long userId=authUtil.getCurrentUserId();
-        createChatSessionIfNotExsists(projectId,userId);
+        Long userId = authUtil.getCurrentUserId();
+        createChatSessionIfNotExsists(projectId, userId);
         Map<String, Object> advisorParams = Map.of(
                 "userId", userId,
                 "projectId", projectId
         );
 
         StringBuilder fullResponseBuffer = new StringBuilder();
+        CodeGenerationTools codeGenerationTools= new CodeGenerationTools(projectFileService,projectId);
 
         return chatClient.prompt()
-                .system(PromptUtils.CODE_GENERATION_SYSTEM_PROMPT)
+                .system(PromptUtils.CODE_GENERATION_SYSTEM_PROMPT +"--file_tree--"+projectFileService.getFileTree(projectId).toString())
                 .user(userMessage)
+                .tools(codeGenerationTools)
                 .advisors(advisorSpec -> {
                             advisorSpec.params(advisorParams);
+                            advisorSpec.advisors(fileTreeContextAdvisor);
                         }
                 )
                 .stream()
                 .chatResponse()
+
+                .filter(response -> response != null
+                        && response.getResult() != null
+                        && response.getResult().getOutput() != null
+                        && response.getResult().getOutput().getText() != null)
+
                 .doOnNext(response -> {
                     String content = response.getResult().getOutput().getText();
                     fullResponseBuffer.append(content);
@@ -59,8 +69,9 @@ public class AIGenerationServiceImple implements AIGenerationService {
                         parseAndSaveFiles(fullResponseBuffer.toString(), projectId);
                     });
                 })
-                .doOnError(error -> log.error("Error during streaming for projectId: {}", projectId))
-                .map(response -> Objects.requireNonNull(response.getResult().getOutput().getText()));
+                .doOnError(error -> log.error("Error during streaming for projectId: {}: ", projectId, error))
+
+                .map(response -> response.getResult().getOutput().getText());
     }
 
     private void parseAndSaveFiles(String fullResponse, Long projectId) {
@@ -72,7 +83,6 @@ public class AIGenerationServiceImple implements AIGenerationService {
             projectFileService.saveFile(projectId, filePath, fileContent);
         }
     }
-
 
     private void createChatSessionIfNotExsists(Long projectId, Long userId) {
     }
