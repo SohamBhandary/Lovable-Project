@@ -3,7 +3,9 @@ package com.Soham.Lovable_Project.Controllers;
 import com.Soham.Lovable_Project.DTOs.Project.ProjectRequest;
 import com.Soham.Lovable_Project.DTOs.Project.ProjectResponse;
 import com.Soham.Lovable_Project.DTOs.Project.ProjectSummaryResponse;
+import com.Soham.Lovable_Project.Deploy.DeployResponse;
 import com.Soham.Lovable_Project.Security.AuthUtil;
+import com.Soham.Lovable_Project.Services.DeploymentService;
 import com.Soham.Lovable_Project.Services.ProjectService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ import java.util.List;
 public class ProjectController {
     private final ProjectService projectService;
     private final AuthUtil authUtil;
+    private final DeploymentService deploymentService;
 
     @GetMapping
     public ResponseEntity<List<ProjectSummaryResponse>> getMyProjects(){
@@ -58,6 +61,11 @@ public class ProjectController {
 
 
 
+    }
+
+    @PostMapping("/{id}/deploy")
+    public ResponseEntity<DeployResponse> deployProject(@PathVariable Long id) {
+        return ResponseEntity.ok(deploymentService.deploy(id));
     }
 
 
