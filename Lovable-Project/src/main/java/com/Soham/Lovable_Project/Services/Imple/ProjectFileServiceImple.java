@@ -2,6 +2,7 @@ package com.Soham.Lovable_Project.Services.Imple;
 
 import com.Soham.Lovable_Project.DTOs.Project.FileContentResponse;
 import com.Soham.Lovable_Project.DTOs.Project.FileNode;
+import com.Soham.Lovable_Project.DTOs.Project.FileTreeResponse;
 import com.Soham.Lovable_Project.Entities.Project;
 import com.Soham.Lovable_Project.Entities.ProjectFile;
 import com.Soham.Lovable_Project.Error.ResourceNotFoundException;
@@ -40,9 +41,10 @@ public class ProjectFileServiceImple implements ProjectFIleService {
     private String projectBucket;
 
     @Override
-    public List<FileNode> getFileTree(Long projectId) {
+    public FileTreeResponse getFileTree(Long projectId) {
         List<ProjectFile> projectFileList = projectFileRepository.findByProjectId(projectId);
-        return projectFileMapper.toListOfFileNode(projectFileList);
+        List<FileNode> projectFilesNodes= projectFileMapper.toListOfFileNode(projectFileList);
+        return new FileTreeResponse(projectFilesNodes);
     }
 
     @Override

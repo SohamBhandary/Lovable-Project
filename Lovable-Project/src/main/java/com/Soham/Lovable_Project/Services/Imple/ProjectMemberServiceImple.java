@@ -35,9 +35,9 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
     @Override
     @PreAuthorize("@security.canViewMembers(#projectId)")
     public List<MemberResponse> getProjectMembers(Long projectId, Long userId) {
-        Project project = getAccesibleProjectById(projectId, userId);
+        Project project = getAccessibleProjectById(projectId, userId);
       return
-        projectMemberRepository.findByIdProjectId(projectId).stream().map(projectMemberRepsonseMapper::toProjectResponseFromMember).toList();
+        projectMemberRepository.findByIdProjectId(projectId).stream().map(projectMemberRepsonseMapper::toProjectMemberResponseFromMember).toList();
 
 
 
@@ -46,7 +46,7 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
     @Override
     @PreAuthorize("@security.canManageMembers(#projectId)")
     public MemberResponse inviteMember(Long projectId, InviteMemberRequest request, Long userId) {
-        Project project = getAccesibleProjectById(projectId, userId);
+        Project project = getAccessibleProjectById(projectId, userId);
         User invitee=userRepository.findByUsername(request.username()).orElseThrow();
         if(invitee.getId().equals(userId)){
             throw new RuntimeException("Cannot invite userslef");
@@ -58,25 +58,25 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
         ProjectMember member= ProjectMember.builder().id(projectMemberId).project(project).user(invitee).projectRole(request.role()).invitedAt(Instant.now()).build();
         projectMemberRepository.save(member);
 
-        return projectMemberRepsonseMapper.toProjectResponseFromMember(member);
+        return projectMemberRepsonseMapper.toProjectMemberResponseFromMember(member);
     }
 
     @Override
     @PreAuthorize("@security.canManageMembers(#projectId)")
     public MemberResponse updateMemberRole(Long projectId, Long memberId, UpdateMemberRequest request, Long userId) {
-        Project project = getAccesibleProjectById(projectId, userId);
+        Project project = getAccessibleProjectById(projectId, userId);
 
         ProjectMemberId projectMemberId= new ProjectMemberId(projectId,memberId);
         ProjectMember projectMember= projectMemberRepository.findById(projectMemberId).orElseThrow();
         projectMember.setProjectRole(request.role());
         projectMemberRepository.save(projectMember);
-        return projectMemberRepsonseMapper.toProjectResponseFromMember(projectMember);
+        return projectMemberRepsonseMapper.toProjectMemberResponseFromMember(projectMember);
     }
 
     @Override
     @PreAuthorize("@security.canManageMembers(#projectId)")
     public Void removeProjectMember(Long projectId, Long memberId, Long userId) {
-        Project project = getAccesibleProjectById(projectId, userId);
+        Project project = getAccessibleProjectById(projectId, userId);
 
         ProjectMemberId projectMemberId= new ProjectMemberId(projectId,memberId);
         if(!projectMemberRepository.existsById(projectMemberId)){
@@ -87,9 +87,9 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
         return null;
     }
 
-
-    public Project getAccesibleProjectById(Long projectId, Long userId) {
-        return projectRepository.findAccessibleProjectById(projectId, userId).orElseThrow();
-
+    public Project getAccessibleProjectById(Long projectId, Long userId) {
+        return projectRepository.findAccessibleProjectById(projectId, userId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Project", projectId.toString()));
     }
 }

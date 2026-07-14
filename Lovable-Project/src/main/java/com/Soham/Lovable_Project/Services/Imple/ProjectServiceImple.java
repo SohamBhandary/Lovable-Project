@@ -85,16 +85,21 @@ public class ProjectServiceImple implements ProjectService {
     @Override
     public List<ProjectSummaryResponse> getUserProjects() {
         Long userId = authUtil.getCurrentUserId();
-        var projects = projectRepository.findAllAccessibleByUser(userId);
-        return projectMapper.toListOfProjectSummaryRepsonse(projects);
+        var projectsWithRoles = projectRepository.findAllAccessibleByUser(userId);
+        return projectsWithRoles.stream()
+                .map(p -> projectMapper.toProjectSummaryResponse(p.getProject(), p.getRole()))
+                .toList();
     }
 
     @Override
     @PreAuthorize("@security.canViewProject(#projectId)")
-    public ProjectResponse getUserProjectById(Long projectId) {
+    public ProjectSummaryResponse getUserProjectById(Long projectId) {
         Long userId = authUtil.getCurrentUserId();
-        Project project = getAccessibleProjectById(projectId, userId);
-        return projectMapper.toProjectResponse(project);
+
+        var projectWithRole = projectRepository.findAccessibleProjectByIdWithRole(projectId, userId)
+                .orElseThrow(() -> new BadRequestException("Project Not Found"));
+
+        return projectMapper.toProjectSummaryResponse(projectWithRole.getProject(), projectWithRole.getRole());
     }
 
     @Override
@@ -122,7 +127,7 @@ public class ProjectServiceImple implements ProjectService {
     ///  INTERNAL FUNCTIONS
 
     public Project getAccessibleProjectById(Long projectId, Long userId) {
-        return projectRepository.findAccessibleProjectById(projectId, userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Project", projectId.toString()));
+        return projectRepository.findAccessibleProjectByIdWithRole(projectId, userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Project", projectId.toString())).getProject();
     }
 }

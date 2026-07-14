@@ -2,13 +2,11 @@ package com.Soham.Lovable_Project.Controllers;
 
 import com.Soham.Lovable_Project.DTOs.Project.FileContentResponse;
 import com.Soham.Lovable_Project.DTOs.Project.FileNode;
+import com.Soham.Lovable_Project.DTOs.Project.FileTreeResponse;
 import com.Soham.Lovable_Project.Services.ProjectFIleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,17 +17,14 @@ public class FileController {
     private final ProjectFIleService fIleService;
 
     @GetMapping
-    public ResponseEntity<List<FileNode>> getFileTree(@PathVariable Long projectId){
-        Long userId=1L;
+    public ResponseEntity<FileTreeResponse> getFileTree(@PathVariable Long projectId) {
         return ResponseEntity.ok(fIleService.getFileTree(projectId));
     }
 
-    @GetMapping("/{*path}")
-    public ResponseEntity<FileContentResponse>  getFile(
+    @GetMapping("/content")
+    public ResponseEntity<FileContentResponse> getFile(
             @PathVariable Long projectId,
-            @PathVariable String path
-    ){
-        Long userId=1L;
-        return ResponseEntity.ok(fIleService.getFileContent(projectId,path,userId));
+            @RequestParam String path) {
+        return ResponseEntity.ok(fIleService.getFileContent(projectId, path));
     }
 }

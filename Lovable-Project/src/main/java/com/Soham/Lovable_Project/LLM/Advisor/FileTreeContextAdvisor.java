@@ -1,6 +1,5 @@
 package com.Soham.Lovable_Project.LLM.Advisor;
 
-
 import com.Soham.Lovable_Project.DTOs.Project.FileNode;
 import com.Soham.Lovable_Project.Services.ProjectFIleService;
 import lombok.RequiredArgsConstructor;
@@ -33,42 +32,28 @@ public class FileTreeContextAdvisor implements StreamAdvisor {
         Long projectId = Long.parseLong(context.getOrDefault("projectId", 0).toString());
 
         ChatClientRequest augmentedChatClientRequest = augmentRequestWithFileTree(request, projectId);
-
         return streamAdvisorChain.nextStream(augmentedChatClientRequest);
     }
 
     private ChatClientRequest augmentRequestWithFileTree(ChatClientRequest request, Long projectId) {
-
         List<Message> incomingMessages = request.prompt().getInstructions();
-
-        Message systemMessage = incomingMessages.stream()
-                .filter(m -> m.getMessageType() == MessageType.SYSTEM)
-                .findFirst()
-                .orElse(null);
-
-        List<Message> userMessages = incomingMessages.stream()
-                .filter(m -> m.getMessageType() != MessageType.SYSTEM)
-                .toList();
-
         List<Message> allMessages = new ArrayList<>();
 
-        // Add original system message
-        if (systemMessage != null) {
-            allMessages.add(systemMessage);
-        }
+        // 1. Maintain ALL historical messages intact (System prompts, User turns, Assistant turns)
+        allMessages.addAll(incomingMessages);
 
-        List<FileNode> fileTree = projectFileService.getFileTree(projectId);
-        String fileTreeContext = "\n\n ---- FILE_TREE ----\n"+fileTree.toString();
+        // 2. Fetch the flat data structure list and wrap as context payload metadata
+        List<FileNode> fileTree = projectFileService.getFileTree(projectId).files();
+        String fileTreeContext = "\n\n---- AVAILABLE PROJECT WORKSPACE FILE_TREE ----\n" + fileTree.toString();
+
+        // 3. Inject the context window as a supporting system baseline marker
         allMessages.add(new SystemMessage(fileTreeContext));
-
-        allMessages.addAll(userMessages);
 
         return request
                 .mutate()
                 .prompt(new Prompt(allMessages, request.prompt().getOptions()))
                 .build();
     }
-
 
     @Override
     public String getName() {
@@ -80,18 +65,3 @@ public class FileTreeContextAdvisor implements StreamAdvisor {
         return 0;
     }
 }
-
-
-
-
-
-
-// System Prompt + File Tree + User message
-
-
-
-
-
-
-
-

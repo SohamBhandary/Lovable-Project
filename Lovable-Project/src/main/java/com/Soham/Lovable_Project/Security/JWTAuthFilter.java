@@ -34,7 +34,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
                 return;
             }
 
-            String jwtToken = requestHeaderToken.split("Bearer ")[1];
+            String jwtToken = requestHeaderToken.substring(7).trim();
 
             JWTUserprincipal user = authUtil.verifyAccessToken(jwtToken);
             if (user != null && SecurityContextHolder.getContext().getAuthentication() == null) {

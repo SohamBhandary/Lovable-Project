@@ -16,15 +16,14 @@ public class UsageController {
     private final UsageServie usageServie;
 
     @GetMapping("/today")
-    public ResponseEntity<UsageTodayResponse> getTodayUsage(){
-        Long userId=1L;
-        return ResponseEntity.ok(usageServie.getTodayUsage(userId));
+    public ResponseEntity<UsageTodayResponse> getTodayUsage() {
+        Long userId = 1L;
+//        return ResponseEntity.ok(usageService.getTodayUsageOfUser(userId));
+        return null;
     }
 
-    @GetMapping("/limits")
-    public ResponseEntity<PlanLimitResponse> getPlanLimits(){
-        Long userId=1L;
-        return ResponseEntity.ok(usageServie.getCurrentSubcriptionLimitsofUser(userId));
-    }
+
+
+
 
 }

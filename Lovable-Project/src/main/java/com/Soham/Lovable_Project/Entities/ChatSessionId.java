@@ -1,13 +1,11 @@
 package com.Soham.Lovable_Project.Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
 @AllArgsConstructor
+@Data
 @NoArgsConstructor
 @Builder
 @ToString
