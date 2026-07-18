@@ -1,4 +1,4 @@
-package com.Soham.Lovable_Project.Config;
+package com.Soham.Account_Service.Config;
 
 
 import com.stripe.Stripe;

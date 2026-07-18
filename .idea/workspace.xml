@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="13b531d2-ade5-43f4-9e31-81d9b35b214a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Lovable-Project/Proxy/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lovable-Project/Proxy/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lovable-Project/Proxy/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lovable-Project/k8s/lovable-proxy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lovable-Project/k8s/policy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lovable-Project/src/main/java/com/Soham/Lovable_Project/Config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lovable-Project/k8s/infra.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Lovable-Project/k8s/infra.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lovable-Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lovable-Project/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lovable-Project/src/main/java/com/Soham/Lovable_Project/Services/Imple/KubernetesDeployServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lovable-Project/src/main/java/com/Soham/Lovable_Project/Services/Imple/KubernetesDeployServiceImple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lovable-Project/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Lovable-Project/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SohamBhandary&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SohamBhandary/Lovable-Project.git&quot;,
+    &quot;accountId&quot;: &quot;4204631a-0e90-470f-89a6-82fddb7c9c67&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3G8KTTvpW91XW5QksKgEYvXdBOs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LovableProjectApplication.executor": "Run",
+    "Maven.Account-Service [clean].executor": "Run",
+    "Maven.Account-Service [install].executor": "Run",
+    "Maven.Lovable-Project [clean].executor": "Run",
+    "Maven.Lovable-Project [compile].executor": "Run",
+    "Maven.Unknown [clean].executor": "Run",
+    "Maven.Unknown [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Lovable-Project",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13b531d2-ade5-43f4-9e31-81d9b35b214a" name="Changes" comment="" />
+      <created>1783347763268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1783347763268</updated>
+    </task>
+    <servers />
+  </component>
+</project>
