@@ -1,6 +1,7 @@
 package com.Soham.Account_Service.Repositories;
 
-import com.Soham.Lovable_Project.Entities.Plan;
+
+import com.Soham.Account_Service.Entities.Plan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

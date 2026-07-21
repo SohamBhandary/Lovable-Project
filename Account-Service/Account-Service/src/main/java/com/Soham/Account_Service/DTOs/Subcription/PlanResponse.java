@@ -1,6 +1,6 @@
 package com.Soham.Account_Service.DTOs.Subcription;
 
-public record PlanReponse(
+public record PlanResponse(
         Long id,
         String name,
         String stripePriceId,
@@ -9,6 +9,5 @@ public record PlanReponse(
         Integer maxPreviews,
         Boolean unlimitedAi,
         Boolean active
-
 ) {
 }

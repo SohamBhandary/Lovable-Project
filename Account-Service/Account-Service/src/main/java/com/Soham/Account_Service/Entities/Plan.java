@@ -1,31 +1,29 @@
 package com.Soham.Account_Service.Entities;
 
-
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.FieldDefaults;
+import lombok.*;
 
 @Getter
 @Setter
-@FieldDefaults(level = AccessLevel.PRIVATE )
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
+@Table(name = "plans")
 public class Plan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
+    private Long id;
+
+    private String name;
+
     @Column(unique = true)
-    String stripePriceId;
-    Integer maxProjects;
-    Integer maxTokensPerDay;
-    Integer maxPreviews;//max preview allowed
-    Boolean unlimitedAi;//ulimitted acces to llm ignore maxtokenperday
-    Boolean active;
+    private String stripePriceId;
 
-
-
-
+    private Integer maxProjects;
+    private Integer maxTokensPerDay;
+    private Integer maxPreviews; // max preview allowed
+    private Boolean unlimitedAi;  // unlimited access to llm ignore maxtokenperday
+    private Boolean active;
 }

@@ -1,11 +1,13 @@
 package com.Soham.Account_Service.DTOs.Subcription;
 
-import com.Soham.Lovable_Project.DTOs.Subcription.PlanReponse;
+
+
+import com.Soham.Common_Lib.DTOs.PlanDto;
 
 import java.time.Instant;
 
 public record SubcriptionResponse(
-        PlanReponse plan,
+        PlanDto plan,
         String status,
         Instant currentPeriodEnd,
         Long tokenUsedThisCycle
