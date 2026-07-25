@@ -4,6 +4,7 @@ import com.Soham.Account_Service.DTOs.Auth.SignupRequest;
 import com.Soham.Account_Service.DTOs.Auth.UserProfileResponse;
 import com.Soham.Account_Service.Entities.User;
 import com.Soham.Common_Lib.DTOs.UserDto;
+import com.Soham.Common_Lib.Security.JWTUserprincipal;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -16,7 +17,9 @@ public interface UserMapper {
     @Mapping(source = "password", target = "password")
     User toEntity(SignupRequest signupRequest);
 
-    UserProfileResponse toUserProfileResponse(User user);
+
+    @Mapping(source = "userId", target = "id")
+    UserProfileResponse toUserProfileResponse(JWTUserprincipal user);
 
     UserDto toUserDto(User user);
 }

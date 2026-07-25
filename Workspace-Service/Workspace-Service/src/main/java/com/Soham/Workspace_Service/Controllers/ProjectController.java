@@ -2,9 +2,11 @@ package com.Soham.Workspace_Service.Controllers;
 
 
 import com.Soham.Common_Lib.Security.AuthUtil;
+import com.Soham.Workspace_Service.DTOs.Project.DeployResponse;
 import com.Soham.Workspace_Service.DTOs.Project.ProjectRequest;
 import com.Soham.Workspace_Service.DTOs.Project.ProjectResponse;
 import com.Soham.Workspace_Service.DTOs.Project.ProjectSummaryResponse;
+import com.Soham.Workspace_Service.Servcies.DeploymentService;
 import com.Soham.Workspace_Service.Servcies.ProjectService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +17,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/projects")
+@RequestMapping("/projects")
 @RequiredArgsConstructor
 public class ProjectController {
     private final ProjectService projectService;
     private final AuthUtil authUtil;
-//    private final DeploymentService deploymentService;
+    private final DeploymentService deploymentService;
 
     @GetMapping
     public ResponseEntity<List<ProjectSummaryResponse>> getMyProjects(){
@@ -61,10 +63,10 @@ public class ProjectController {
 
     }
 
-//    @PostMapping("/{id}/deploy")
-//    public ResponseEntity<DeployResponse> deployProject(@PathVariable Long id) {
-//        return ResponseEntity.ok(deploymentService.deploy(id));
-//    }
+    @PostMapping("/{id}/deploy")
+    public ResponseEntity<DeployResponse> deployProject(@PathVariable Long id) {
+        return ResponseEntity.ok(deploymentService.deploy(id));
+    }
 
 
 

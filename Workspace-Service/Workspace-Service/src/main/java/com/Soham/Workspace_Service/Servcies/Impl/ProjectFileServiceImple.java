@@ -1,9 +1,9 @@
 package com.Soham.Workspace_Service.Servcies.Impl;
 
+import com.Soham.Common_Lib.DTOs.FileNode;
+import com.Soham.Common_Lib.DTOs.FileTreeDto;
 import com.Soham.Common_Lib.Error.ResourceNotFoundException;
 import com.Soham.Workspace_Service.DTOs.Project.FileContentResponse;
-import com.Soham.Workspace_Service.DTOs.Project.FileNode;
-import com.Soham.Workspace_Service.DTOs.Project.FileTreeResponse;
 import com.Soham.Workspace_Service.Entities.Project;
 import com.Soham.Workspace_Service.Entities.ProjectFile;
 import com.Soham.Workspace_Service.Mapper.ProjectFileMapper;
@@ -41,14 +41,14 @@ public class ProjectFileServiceImple implements ProjectFIleService {
     private String projectBucket;
 
     @Override
-    public FileTreeResponse getFileTree(Long projectId) {
+    public FileTreeDto getFileTree(Long projectId) {
         List<ProjectFile> projectFileList = projectFileRepository.findByProjectId(projectId);
         List<FileNode> projectFilesNodes= projectFileMapper.toListOfFileNode(projectFileList);
-        return new FileTreeResponse(projectFilesNodes);
+        return new FileTreeDto(projectFilesNodes);
     }
 
     @Override
-    public FileContentResponse getFileContent(Long projectId, String path) {
+    public String getFileContent(Long projectId, String path) {
         String objectName = projectId + "/" + path;
         try (
                 InputStream is = minioClient.getObject(
@@ -57,8 +57,8 @@ public class ProjectFileServiceImple implements ProjectFIleService {
                                 .object(objectName)
                                 .build())) {
 
-            String content = new String(is.readAllBytes(), StandardCharsets.UTF_8);
-            return new FileContentResponse(path, content);
+             return new String(is.readAllBytes(), StandardCharsets.UTF_8);
+
         } catch (Exception e) {
             log.error("Failed to read file: {}/{}", projectId, path, e);
             throw new RuntimeException("Failed to read file content", e);

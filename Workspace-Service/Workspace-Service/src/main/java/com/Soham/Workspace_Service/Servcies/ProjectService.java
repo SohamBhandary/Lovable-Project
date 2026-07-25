@@ -2,6 +2,7 @@ package com.Soham.Workspace_Service.Servcies;
 
 
 
+import com.Soham.Common_Lib.Enums.ProjectPermission;
 import com.Soham.Workspace_Service.DTOs.Project.ProjectRequest;
 import com.Soham.Workspace_Service.DTOs.Project.ProjectResponse;
 import com.Soham.Workspace_Service.DTOs.Project.ProjectSummaryResponse;
@@ -20,4 +21,5 @@ public interface ProjectService {
      ProjectResponse updateProject(Long id, ProjectRequest req);
 
     void softDelete(Long id);
+     boolean hasPermission(Long projectId, ProjectPermission permission);
 }

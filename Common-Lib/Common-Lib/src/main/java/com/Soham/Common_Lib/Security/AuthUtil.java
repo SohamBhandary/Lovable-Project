@@ -27,24 +27,26 @@ public class AuthUtil {
     }
 
 
-    public String generateAccessToken(UserDto user){
+    public String generateAccessToken(JWTUserprincipal user){
         return Jwts.builder().setSubject(user.username())
-                .claim("userId",user.id().toString())
+                .claim("userId",user.userId().toString())
+                .claim("name", user.name())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis()+1000*60*1000))
                 .signWith(getSecretKey())
                 .compact();
     }
 
-    public JWTUserprincipal verifyAccessToken(String token)
-    {
-        Claims claims= Jwts.parser()
+    public JWTUserprincipal verifyAccessToken(String token) {
+        Claims claims = Jwts.parser()
                 .verifyWith(getSecretKey())
                 .build().parseSignedClaims(token).getPayload();
 
-        Long userId=Long.parseLong(claims.get("userId",String.class));
-        String username= claims.getSubject();
-        return new JWTUserprincipal(userId,username, null,new ArrayList<>());
+        Long userId = Long.parseLong(claims.get("userId", String.class));
+        String name = claims.get("name", String.class);
+        String username = claims.getSubject();
+
+        return new JWTUserprincipal(userId, username, username, null, new ArrayList<>());
     }
 
     public Long getCurrentUserId() {

@@ -1,6 +1,7 @@
 package com.Soham.Common_Lib.Security;
 
 import feign.RequestInterceptor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
@@ -16,7 +17,7 @@ public class SharedSecurityAutoConfiguration {
     }
 
     @Bean
-    public JWTAuthFilter jwtAuthFilter(AuthUtil authUtil, HandlerExceptionResolver handlerExceptionResolver) {
+    public JWTAuthFilter jwtAuthFilter(AuthUtil authUtil, @Qualifier("handlerExceptionResolver") HandlerExceptionResolver handlerExceptionResolver) {
         return new JWTAuthFilter(authUtil, handlerExceptionResolver);
     }
     @Bean

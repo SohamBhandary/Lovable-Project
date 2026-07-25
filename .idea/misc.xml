@@ -13,7 +13,13 @@
         <option value="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/pom.xml" />
         <option value="$PROJECT_DIR$/Workspace-Service/Workspace-Service/pom.xml" />
         <option value="$PROJECT_DIR$/Config-Service/Config-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/intelligence-service/untitled/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/intelligence-service/untitled/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">

@@ -1,8 +1,7 @@
-package com.Soham.Workspace_Service.DTOs.Project;
+package com.Soham.Common_Lib.DTOs;
 
 public record FileNode(
         String path
-
 ) {
 
     @Override

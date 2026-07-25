@@ -5,52 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13b531d2-ade5-43f4-9e31-81d9b35b214a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Controllers/BillingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Mapper/SubcriptionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Security/AccountSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/Imple/AuthServiceImple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/Imple/StripePaymentProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/Imple/SubcriptionServiceImple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/PaymentProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/SubcriptionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Configs/K8Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Configs/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Configs/StorageConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Entities/Preview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Entities/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Entities/ProjectFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Entities/ProjectMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Entities/ProjectMemberId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Repositories/ProjectFileRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Repositories/ProjectMemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Repositories/ProjectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/Imple/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/DTOs/FileNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/DTOs/FileTreeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intelligence-Service/untitled/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/InternalWorkspaceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/DTOs/Project/DeployResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Security/SecurityExpressions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Security/WorkspaceSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/DeploymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/KubernetesDeployServiceImple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/AccountServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/DTOs/Subcription/PlanReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/DTOs/Subcription/PlanResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/DTOs/Subcription/SubcriptionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/DTOs/Subcription/SubcriptionResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Entities/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Entities/Plan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Entities/Subcription.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Entities/Subcription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Controllers/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Repositories/PlanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Repositories/PlanRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Repositories/SubcriptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Repositories/SubcriptionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Security/AccountSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Security/AccountSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/Imple/AuthServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/java/com/Soham/Account_Service/Services/Imple/AuthServiceImple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Account-Service/Account-Service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config-Service/Config-Service/src/main/java/com/Soham/Config_Service/ConfigServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Config-Service/Config-Service/src/main/java/com/Soham/Config_Service/ConfigServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config-Service/Config-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Config-Service/Config-Service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Discovery-Service/Discovery-Service/src/main/java/com/Soham/Discovery_Service/DiscoveryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Discovery-Service/Discovery-Service/src/main/java/com/Soham/Discovery_Service/DiscoveryServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Discovery-Service/Discovery-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Discovery-Service/Discovery-Service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/AuthUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/AuthUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/JWTAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/JWTAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/JWTUserprincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/JWTUserprincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/SharedSecurityAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/SharedSecurityAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/test/java/com/Soham/Common_Lib/CommonLibApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/IntelligenceServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/test/java/com/Soham/Intelligence_Service/IntelligenceServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/ProjectMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Controllers/ProjectMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/DTOs/Project/FileNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/DTOs/Project/FileTreeResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Mapper/ProjectFileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Mapper/ProjectFileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Mapper/ProjectMemberRepsonseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Mapper/ProjectMemberRepsonseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/ProjectFileServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/ProjectFileServiceImple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/ProjectMemberServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/ProjectMemberServiceImple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/ProjectServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/Impl/ProjectServiceImple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/ProjectFIleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/ProjectFIleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Servcies/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/WorkspaceServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/WorkspaceServiceApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +63,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -100,47 +103,50 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AccountServiceApplication.executor": "Run",
-    "Application.ApiGatewayApplication.executor": "Run",
-    "Application.ConfigServiceApplication.executor": "Run",
-    "Application.DiscoveryServiceApplication.executor": "Run",
-    "Application.LovableProjectApplication.executor": "Run",
-    "Application.WorkspaceServiceApplication.executor": "Run",
-    "Maven.Account-Service [clean].executor": "Run",
-    "Maven.Account-Service [install].executor": "Run",
-    "Maven.Common-Lib [clean].executor": "Run",
-    "Maven.Common-Lib [install].executor": "Run",
-    "Maven.Lovable-Project [clean].executor": "Run",
-    "Maven.Lovable-Project [compile].executor": "Run",
-    "Maven.Unknown [clean].executor": "Run",
-    "Maven.Unknown [install].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Lovable-Project",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CommonLibApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConfigServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IntelligenceServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LovableProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WorkspaceServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Account-Service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Account-Service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Common-Lib [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Common-Lib [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Lovable-Project [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Lovable-Project [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unknown [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unknown [install].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Lovable-Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Lovable-Project\Workspace-Service\Workspace-Service\src\main\java\com\Soham\Workspace_Service\Configs" />
-      <recent name="D:\Lovable-Project\Workspace-Service\Workspace-Service\src\main\java\com\Soham\Workspace_Service\Entities" />
-      <recent name="D:\Lovable-Project\Account-Service\Account-Service\src\main\java\com\Soham\Account_Service" />
-      <recent name="D:\Lovable-Project\Account-Service\Account-Service\src\main\java\com\Soham\Account_Service\DTOs\Auth" />
-      <recent name="D:\Lovable-Project\Account-Service\Account-Service\src\main\java\com\Soham\Account_Service\DTOs" />
+      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service" />
+      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service\DTOs" />
+      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service\LLms" />
+      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service\Repository" />
+      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service\Entities" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.Soham.Workspace_Service.Repositories" />
-      <recent name="com.Soham.Account_Service.Controllers" />
-      <recent name="com.Soham.Account_Service.Repositories" />
-      <recent name="com.Soham.Account_Service.Mapper" />
+      <recent name="com.Soham.Intelligence_Service.Mapper" />
+      <recent name="com.Soham.Intelligence_Service.Services.Imple" />
+      <recent name="com.Soham.Intelligence_Service.Services" />
+      <recent name="com.Soham.Intelligence_Service.Controller" />
+      <recent name="com.Soham.Intelligence_Service.Config" />
     </key>
   </component>
   <component name="TaskManager">

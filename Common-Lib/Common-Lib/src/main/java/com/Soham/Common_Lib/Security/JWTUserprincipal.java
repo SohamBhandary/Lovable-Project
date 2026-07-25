@@ -10,9 +10,10 @@ import java.util.List;
 public record JWTUserprincipal(
 
         Long userId,
+        String name,
         String username,
         String password,
-        List<GrantedAuthority> authorityList
+        List<GrantedAuthority> authorities
 ) implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

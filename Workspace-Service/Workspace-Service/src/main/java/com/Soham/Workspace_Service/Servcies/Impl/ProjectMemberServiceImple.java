@@ -58,7 +58,12 @@ public class ProjectMemberServiceImple implements ProjectMemberService {
         if(projectMemberRepository.existsById(projectMemberId)){
             throw new RuntimeException("Cannot be invited");
         }
-        ProjectMember member= ProjectMember.builder().id(projectMemberId).project(project).user(invitee).projectRole(request.role()).invitedAt(Instant.now()).build();
+        ProjectMember member = ProjectMember.builder()
+                .id(projectMemberId)
+                .project(project)
+                .projectRole(request.role())
+                .invitedAt(Instant.now())
+                .build();
         projectMemberRepository.save(member);
 
         return projectMemberRepsonseMapper.toProjectMemberResponseFromMember(member);

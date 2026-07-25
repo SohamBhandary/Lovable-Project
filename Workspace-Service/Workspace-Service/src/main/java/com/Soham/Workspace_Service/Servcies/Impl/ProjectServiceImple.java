@@ -2,6 +2,7 @@ package com.Soham.Workspace_Service.Servcies.Impl;
 
 
 import com.Soham.Common_Lib.DTOs.PlanDto;
+import com.Soham.Common_Lib.Enums.ProjectPermission;
 import com.Soham.Common_Lib.Enums.ProjectRole;
 import com.Soham.Common_Lib.Error.BadRequestException;
 import com.Soham.Common_Lib.Error.ResourceNotFoundException;
@@ -16,6 +17,7 @@ import com.Soham.Workspace_Service.Entities.ProjectMemberId;
 import com.Soham.Workspace_Service.Mapper.ProjectMapper;
 import com.Soham.Workspace_Service.Repositories.ProjectMemberRepository;
 import com.Soham.Workspace_Service.Repositories.ProjectRepository;
+import com.Soham.Workspace_Service.Security.SecurityExpressions;
 import com.Soham.Workspace_Service.Servcies.ProjectService;
 import com.Soham.Workspace_Service.Servcies.ProjectTemplateService;
 import jakarta.transaction.Transactional;
@@ -40,6 +42,7 @@ public class ProjectServiceImple implements ProjectService {
 
     private final ProjectTemplateService projectTemplateService;
     private final AccountClient accountClient;
+    private final SecurityExpressions securityExpressions;
 
 
     @Override
@@ -125,6 +128,11 @@ public class ProjectServiceImple implements ProjectService {
         projectRepository.save(project);
     }
 
+    @Override
+    public boolean hasPermission(Long projectId, ProjectPermission permission) {
+        return securityExpressions.hasPermission(projectId, permission);
+    }
+
     ///  INTERNAL FUNCTIONS
 
     public Project getAccessibleProjectById(Long projectId, Long userId) {
@@ -138,12 +146,19 @@ public class ProjectServiceImple implements ProjectService {
         if (userId == null) {
             return false;
         }
-        PlanDto plan = accountClient.getCurrentSubscribedPlanByUser();
 
-        int maxAllowed = plan.maxProjects();
-        int ownedCount = projectMemberRepository.countProjectOwnedByUser(userId);
+        try {
+            PlanDto plan = accountClient.getCurrentSubscribedPlanByUser();
+            // Fallback to a baseline limit of 5 projects if plan data returns null
+            int maxAllowed = (plan != null) ? plan.maxProjects() : 5;
+            int ownedCount = projectMemberRepository.countProjectOwnedByUser(userId);
 
-        return ownedCount < maxAllowed;
+            return ownedCount < maxAllowed;
+        } catch (Exception e) {
+            // Fallback protection if Account-Service call times out or fails on a clean DB
+            int ownedCount = projectMemberRepository.countProjectOwnedByUser(userId);
+            return ownedCount < 5;
+        }
     }
 
 }

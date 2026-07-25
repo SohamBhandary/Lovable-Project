@@ -1,13 +1,13 @@
 package com.Soham.Workspace_Service.Servcies;
 
 
+import com.Soham.Common_Lib.DTOs.FileTreeDto;
 import com.Soham.Workspace_Service.DTOs.Project.FileContentResponse;
-import com.Soham.Workspace_Service.DTOs.Project.FileTreeResponse;
 
 public interface ProjectFIleService {
-    FileTreeResponse getFileTree(Long projectId);
+    FileTreeDto getFileTree(Long projectId);
 
-    FileContentResponse getFileContent(Long projectId, String path);
+    String getFileContent(Long projectId, String path);
 
     void saveFile(Long projectId, String filePath, String fileContent);
 
