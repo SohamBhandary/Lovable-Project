@@ -3,6 +3,7 @@ package com.Soham.Intelligence_Service.Entities;
 
 
 
+import com.Soham.Common_Lib.Enums.ChatEventStatus;
 import com.Soham.Common_Lib.Enums.ChatEventType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -40,5 +41,11 @@ public class ChatEvent {
 
     @Column(columnDefinition = "text")
     String metadata;
+
+    String sagaId;
+
+    @Enumerated(EnumType.STRING)
+//    @Column(nullable = false)
+    ChatEventStatus status;
 
 }

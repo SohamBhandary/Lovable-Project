@@ -1,6 +1,7 @@
 package com.Soham.Intelligence_Service.LLms;
 
 
+import com.Soham.Common_Lib.Enums.ChatEventStatus;
 import com.Soham.Common_Lib.Enums.ChatEventType;
 import com.Soham.Intelligence_Service.Entities.ChatEvent;
 import com.Soham.Intelligence_Service.Entities.ChatMessage;
@@ -43,6 +44,7 @@ public class LlmResponseParser {
             Map<String, String> attrMap = extractAttributes(attributes);
 
             ChatEvent.ChatEventBuilder builder = ChatEvent.builder()
+                    .status(ChatEventStatus.CONFIRMED)
                     .chatMessage(parentMessage)
                     .content(content)
                     .sequenceOrder(orderCounter++);
@@ -55,6 +57,7 @@ public class LlmResponseParser {
                 }
                 case "tool" -> {
                     builder.type(ChatEventType.TOOL_LOG);
+                    builder.status(ChatEventStatus.PENDING);
                     builder.metadata(attrMap.get("args"));
                 }
                 default -> {
