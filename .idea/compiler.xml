@@ -31,19 +31,17 @@
         </processorPath>
         <module name="Workspace-Service" />
       </profile>
-      <profile name="Annotation profile for Intelligence-Service" enabled="true">
+      <profile name="Annotation profile for Account-Service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
         </processorPath>
-        <module name="Intelligence-Service" />
         <module name="Account-Service" />
-        <module name="Lovable-Project" />
       </profile>
       <profile name="Annotation profile for Api-Gateway" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -54,18 +52,30 @@
         </processorPath>
         <module name="Api-Gateway" />
       </profile>
+      <profile name="Annotation profile for Lovable-Project" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
+        </processorPath>
+        <module name="Lovable-Project" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Account-Service.main" target="21" />
       <module name="Account-Service.test" target="21" />
       <module name="Common-Lib.main" target="21" />
       <module name="Common-Lib.test" target="21" />
+      <module name="Intelligence-Service" target="1.5" />
       <module name="intelligence-service" target="23" />
       <module name="Intelligence-Service.main" target="21" />
       <module name="Intelligence-Service.test" target="21" />
       <module name="lovable-parent" target="17" />
       <module name="Lovable-Project (1)" target="17" />
-      <module name="untitled" target="23" />
       <module name="Workspace-Service.main" target="21" />
       <module name="Workspace-Service.test" target="21" />
     </bytecodeTargetLevel>
@@ -81,7 +91,7 @@
       <module name="Common-Lib.test" options="-parameters" />
       <module name="Config-Service" options="-parameters" />
       <module name="Discovery-Service" options="-parameters" />
-      <module name="Intelligence-Service" options="-parameters" />
+      <module name="Intelligence-Service" options="" />
       <module name="Intelligence-Service.main" options="-parameters" />
       <module name="Intelligence-Service.test" options="-parameters" />
       <module name="Lovable-Project" options="-parameters" />

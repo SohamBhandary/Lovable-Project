@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/Config-Service/Config-Service/pom.xml" />
         <option value="$PROJECT_DIR$/intelligence-service/untitled/pom.xml" />
         <option value="$PROJECT_DIR$/Intelligence-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/k8s/untitled/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

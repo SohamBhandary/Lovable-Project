@@ -5,63 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13b531d2-ade5-43f4-9e31-81d9b35b214a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/java/com/Soham/Api_Gateway/Config/SecurityProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/java/com/Soham/Api_Gateway/Error/ApiError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/java/com/Soham/Api_Gateway/Filter/GatewayJwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/java/com/Soham/Api_Gateway/Service/JwtGatewayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Event/FileStoreRequestEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Event/FileStoreResponseEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service/Consumer/IntelligenceSagaResponseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/java/com/Soham/Api_Gateway/Config/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/AuthUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/AuthUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/JWTAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common-Lib/Common-Lib/src/main/java/com/Soham/Common_Lib/Security/JWTAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Client/AccountClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Client/WorkSpaceClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Config/AiConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Controller/ChatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/DTOs/Chat/ChatEventResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/DTOs/Chat/ChatRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/DTOs/Chat/ChatResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/DTOs/Chat/StreamResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Entities/ChatEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Entities/ChatMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Entities/ChatSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Entities/ChatSessionId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Entities/UsageLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/IntelligenceServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/LLms/CodeGenerationTools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/LLms/FileTreeContextAdvisor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/LLms/LlmResponseParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/LLms/PromptUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Mapper/ChatMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Repository/ChatEventRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Repository/ChatMessageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Repository/ChatSessionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Repository/UsageLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Services/AIGenerationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Services/ChatService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Services/Imple/AiGenerationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Services/Imple/ChatServiceImple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Services/Imple/UsageServiceImple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/Services/UsageServie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/security/IntelligenceSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/java/com/Soham/Intelligence_Service/security/SecurityExpressions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/Intelligence-Service/src/test/java/com/Soham/Intelligence_Service/IntelligenceServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intelligence-Service/untitled/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lovable-Project/services.docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Lovable-Project/services.docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Workspace-Service/Workspace-Service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,8 +83,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "2fdadd53",
-    "last_opened_file_path": "D:/Lovable-Project/Workspace-Service/Workspace-Service/src/main/java/com/Soham/Workspace_Service",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Lovable-Project",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
