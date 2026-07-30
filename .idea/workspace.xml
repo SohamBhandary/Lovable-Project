@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13b531d2-ade5-43f4-9e31-81d9b35b214a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Api-Gateway/Api-Gateway/src/main/java/com/Soham/Api_Gateway/Config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c522ad9b-f1ce-4974-9d59-5acf7b468eb7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services.docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/services.docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Soham/Lovable_Project/LLM/PromptUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Soham/Lovable_Project/LLM/PromptUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Soham/Lovable_Project/Services/Imple/KubernetesDeployServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Soham/Lovable_Project/Services/Imple/KubernetesDeployServiceImple.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +22,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -47,90 +48,35 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="3G8KTTvpW91XW5QksKgEYvXdBOs" />
+  <component name="ProjectId" id="3GDzgSMWv1ARiaVb50sdsY9CgMS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AccountServiceApplication.executor": "Run",
-    "Application.ApiGatewayApplication.executor": "Run",
-    "Application.CommonLibApplication.executor": "Run",
-    "Application.ConfigServiceApplication.executor": "Run",
-    "Application.DiscoveryServiceApplication.executor": "Run",
-    "Application.IntelligenceServiceApplication.executor": "Run",
-    "Application.LovableProjectApplication.executor": "Run",
-    "Application.WorkspaceServiceApplication.executor": "Run",
-    "Maven.Account-Service [clean].executor": "Run",
-    "Maven.Account-Service [install].executor": "Run",
-    "Maven.Common-Lib [clean].executor": "Run",
-    "Maven.Common-Lib [install].executor": "Run",
-    "Maven.Intelligence-Service [clean].executor": "Run",
-    "Maven.Intelligence-Service [install].executor": "Run",
-    "Maven.Lovable-Project [clean].executor": "Run",
-    "Maven.Lovable-Project [compile].executor": "Run",
-    "Maven.Unknown [clean].executor": "Run",
-    "Maven.Unknown [install].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Lovable-Project",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LovableProjectApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Lovable-Project/Lovable-Project&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Lovable-Project\Workspace-Service\Workspace-Service\src\main\java\com\Soham\Workspace_Service" />
-      <recent name="D:\Lovable-Project\Common-Lib\Common-Lib\src\main\java\com\Soham\Common_Lib\Event" />
-      <recent name="D:\Lovable-Project\Api-Gateway\Api-Gateway\src\main\java\com\Soham\Api_Gateway" />
-      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service" />
-      <recent name="D:\Lovable-Project\Intelligence-Service\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service\DTOs" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Lovable-Project\Intelligence-Service\src\main\java\com\Soham\Intelligence_Service\Services\Imple" />
-      <recent name="D:\Lovable-Project\Intelligence-Service\src\main\java" />
-      <recent name="D:\Lovable-Project\Intelligence-Service\src\main" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.Soham.Intelligence_Service.Mapper" />
-      <recent name="com.Soham.Intelligence_Service.Services.Imple" />
-      <recent name="com.Soham.Intelligence_Service.Services" />
-      <recent name="com.Soham.Intelligence_Service.Controller" />
-      <recent name="com.Soham.Intelligence_Service.Config" />
-    </key>
-  </component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="13b531d2-ade5-43f4-9e31-81d9b35b214a" name="Changes" comment="" />
-      <created>1783347763268</created>
+      <changelist id="c522ad9b-f1ce-4974-9d59-5acf7b468eb7" name="Changes" comment="" />
+      <created>1783521038326</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1783347763268</updated>
+      <updated>1783521038326</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
